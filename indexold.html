@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Benya B M | Full Stack Web Developer</title>
+  <link href="bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="all.min.css">
+  <link rel="stylesheet" href="aos.css"/>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #0f2027;
+      background-image: url('cubes.png');
+      color: #e4e4e4;
+    }
+    header {
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: white;
+      padding: 80px 0 60px;
+      text-align: center;
+    }
+    header img {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      border: 4px solid #fff;
+      margin-bottom: 20px;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+    }
+    header h1 {
+      font-size: 2.8rem;
+      font-weight: 600;
+    }
+    
+
+    header p {
+      font-size: 1.1rem;
+      margin: 5px 0;
+    }
+    section {
+      padding: 30px 20px;
+    }
+    .section-title {
+      font-size: 2rem;
+      font-weight: 600;
+      color: #00d4ff;
+      margin-bottom: 40px;
+      text-align: center;
+      position: relative;
+    }
+    .section-title::after {
+      content: '';
+      width: 80px;
+      height: 3px;
+      background: #00d4ff;
+      position: absolute;
+      left: 50%;
+      bottom: -10px;
+      transform: translateX(-50%);
+    }
+    .card-custom {
+      background: rgba(255,255,255,0.05);
+      border-radius: 12px;
+      padding: 25px;
+      margin-bottom: 25px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card-custom:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.4);
+    }
+    .skills span {
+      display: inline-block;
+      background: #00d4ff;
+      color: #000;
+      padding: 8px 16px;
+      border-radius: 30px;
+      margin: 6px;
+      font-size: 0.9rem;
+    }
+    footer {
+      background: #0f2027;
+      color: white;
+      text-align: center;
+      padding: 30px 0;
+    }
+    a {
+      color: #00d4ff;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .icon-tech {
+      font-size: 2rem;
+      color: #00d4ff;
+      margin-right: 7px;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem; /* adjust as needed */
+      }
+      .icon-tech {
+        font-size: 1.6rem;
+      }
+
+    }
+
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 1.6rem; /* for very small screens */
+      }
+      .icon-tech {
+        font-size: 1.4rem;
+      }
+      .card-custom {
+        padding: 17px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <header data-aos="fade-down">
+    <img src="logo.png" alt="Benya B M">
+    <h1>Benya B M </h1>
+    <p><i class="fas fa-code icon-tech"></i> Full Stack Web Developer | Laravel, React, Python, NodeJs</p>
+    <p><i class="fas fa-map-marker-alt icon-tech"></i> Kanyakumari, IN | <a href="tel:9442067639">9442067639</a> | <a href="mailto:benyabenz1999@gmail.com">benyabenz1999@gmail.com</a> | <a href="https://www.linkedin.com/in/benya-benz/" target="_blank">LinkedIn</a></p>
+  </header>
+
+  <section id="about" data-aos="fade-up">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <p class="text-center px-md-5">
+        A dedicated Web Developer with 4.4 years of experience building scalable web applications and APIs using Laravel, Node.js, React, and MySQL/MongoDB. I’ve worked on a wide range of projects, from e-commerce platforms and billing systems to chatbots and mind map tools. Passionate about clean code, real-world problem solving, and continuous learning.
+      </p>
+    </div>
+  </section>
+
+  <section id="projects" data-aos="fade-up">
+    <div class="container">
+      <h2 class="section-title">Projects</h2>
+      <div class="card-custom">
+        <h5><i class="fab fa-whatsapp icon-tech"></i> Rentla</h5>
+        <p>Developed using Laravel, Rentla includes an admin panel, agent app, and customer app for managing rental operations. Built robust APIs and backend workflows to support multi-role access and seamless interaction.</p>
+
+      </div>
+      <div class="card-custom">
+        <h5><i class="fas fa-project-diagram icon-tech"></i> Chat Bot, Mind Map</h5>
+        <p>Developed a real-time chatbot using Node.js and Gemini API for intelligent interactions. Also implemented an interactive mind map tool using Express.js, React, and MongoDB for visualizing and organizing ideas with persistent data storage.</p>
+
+      </div>
+      <div class="card-custom">
+        <h5><i class="fas fa-store icon-tech"></i> E-commerce Website and API – RCD, Vaannila, Eden</h5>
+        <p>Product listing and cart modules built using Laravel for smooth user experience.</p>
+      </div>
+      <div class="card-custom">
+        <h5><i class="fas fa-mobile-alt icon-tech"></i> Mobile App API – Ikonil, Student Canteen </h5>
+        <p>Developed RESTful APIs using Laravel and MySQL for Ikonil, an e-commerce platform, and Student Canteen, a monthly food subscription service. Ensured secure and efficient backend operations tailored to each application's needs.</p>
+      </div>
+
+      <div class="card-custom">
+        <h5><i class="fas fa-cash-register icon-tech"></i> Billing Software – Chozha, Sundar Store, Senthoor Murugan, Osborne</h5>
+        <p>Developed a custom billing software using HTML, CSS, Bootstrap, JavaScript, Laravel, and MySQL. Designed for multiple retail stores to manage sales, inventory, and invoice generation with a user-friendly interface.</p>
+      </div>
+
+      
+    </div>
+  </section>
+
+  <section id="experience" data-aos="fade-up">
+    <div class="container">
+      <h2 class="section-title">Experience</h2>
+      <div class="card-custom">
+        <h5><i class="fas fa-laptop-code icon-tech"></i> Web Developer – AK Infopark</h5>
+        <small class="text-muted" style="color: white !important;">Aug 2023 – May 2025</small>
+        <ul class="mt-2">
+          <li>Managed multiple full-stack web development projects using a diverse tech stack including PHP, Laravel, Node.js, Express.js, React.js, CodeIgniter, and Python, ensuring timely delivery and adherence to high-quality standards.</li>
+          <li> Developed and customized dynamic, responsive websites with HTML, CSS, JavaScript, Bootstrap, and jQuery, resulting in a 90% improvement in site performance and load times.</li>
+          <li> Integrated third-party APIs and built backend services using Node.js, Express.js, and Laravel ensuring smooth interoperability and improved user experience.</li>
+          <li>Designed and optimized databases using SQL and MongoDB, enabling efficient data storage and retrieval for scalable applications.</li>
+          <li> Led training and internship programs for college students and external participants, mentoring them on core web development technologies such as HTML, CSS, JavaScript, PHP, Laravel, and Bootstrap, fostering practical, real-world skills.</li>
+        </ul>
+      </div>
+
+      <div class="card-custom">
+        <h5><i class="fas fa-laptop-code icon-tech"></i> Web Developer – Accenture India Pvt Ltd</h5>
+        <small class="text-muted" style="color: white !important;">May 2023 – Jul 2023</small>
+        <ul class="mt-2">
+          <li> Developed and customized AEM components, templates, and workflows to deliver scalable and responsive web applications, improving content management efficiency by 40%</li>
+          <li>  Collaborated with cross-functional teams to optimize AEM performance, implementing caching strategies and load balancing techniques that reduced page load times by 30%</li>
+          
+        </ul>
+      </div>
+
+      <div class="card-custom">
+        <h5><i class="fas fa-laptop-code icon-tech"></i> Web Developer –  Shanthi IT Solution</h5>
+        <small class="text-muted" style="color: white !important;">Dec 2020 – Mar 2023</small>
+        <ul class="mt-2">
+          <li>  Designed and developed responsive websites using HTML, CSS, JavaScript, and Bootstrap,  ensuring cross-browser compatibility and improved user experience</li>
+          <li>  Implemented backend functionalities using core PHP to manage dynamic content, user authentication, and database integration</li>
+          <li> Mentored and trained internship college students, providing guidance on web development best practices and hands-on coding projects</li>
+          
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="education" data-aos="fade-up">
+    <div class="container">
+      <h2 class="section-title">Education</h2>
+      <div class="card-custom">
+        <p><strong><i class="fas fa-graduation-cap icon-tech"></i> B.E in Computer Science Engineering</strong><br> National College Of Engineering (2016–2020)</p>
+        <p><strong><i class="fas fa-school icon-tech"></i> HSS</strong><br> LMS Girls Higher Secondary School</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" data-aos="fade-up">
+    <div class="container">
+      <h2 class="section-title">Skills</h2>
+      <div class="skills text-center">
+        <span>Laravel</span><span>CodeIgniter</span><span>React JS</span><span>Node JS</span><span>Express JS</span><span>JavaScript</span><span>MySQL</span><span>MongoDB</span>
+        <span>Postman</span><span>Python</span><span>HTML</span><span>CSS</span><span>Bootstrap</span><span>Git</span>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Benya B M | Full Stack Web Developer</p>
+  </footer>
+
+  <script src="aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+</body>
+
+</html>
