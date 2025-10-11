@@ -1,246 +1,1005 @@
 <!DOCTYPE html>
 <html lang="en">
-<meta http-equiv="content-type" content="text/html;charset=utf-8" />
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Benya B M | Full Stack Web Developer</title>
-  <link href="bootstrap.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="all.min.css">
-  <link rel="stylesheet" href="aos.css"/>
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #0f2027;
-      background-image: url('cubes.png');
-      color: #e4e4e4;
-    }
-    header {
-      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-      color: white;
-      padding: 80px 0 60px;
-      text-align: center;
-    }
-    header img {
-      width: 130px;
-      height: 130px;
-      border-radius: 50%;
-      border: 4px solid #fff;
-      margin-bottom: 20px;
-      box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
-    }
-    header h1 {
-      font-size: 2.8rem;
-      font-weight: 600;
-    }
-    
-
-    header p {
-      font-size: 1.1rem;
-      margin: 5px 0;
-    }
-    section {
-      padding: 30px 20px;
-    }
-    .section-title {
-      font-size: 2rem;
-      font-weight: 600;
-      color: #00d4ff;
-      margin-bottom: 40px;
-      text-align: center;
-      position: relative;
-    }
-    .section-title::after {
-      content: '';
-      width: 80px;
-      height: 3px;
-      background: #00d4ff;
-      position: absolute;
-      left: 50%;
-      bottom: -10px;
-      transform: translateX(-50%);
-    }
-    .card-custom {
-      background: rgba(255,255,255,0.05);
-      border-radius: 12px;
-      padding: 25px;
-      margin-bottom: 25px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .card-custom:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 24px rgba(0,0,0,0.4);
-    }
-    .skills span {
-      display: inline-block;
-      background: #00d4ff;
-      color: #000;
-      padding: 8px 16px;
-      border-radius: 30px;
-      margin: 6px;
-      font-size: 0.9rem;
-    }
-    footer {
-      background: #0f2027;
-      color: white;
-      text-align: center;
-      padding: 30px 0;
-    }
-    a {
-      color: #00d4ff;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    .icon-tech {
-      font-size: 2rem;
-      color: #00d4ff;
-      margin-right: 7px;
-    }
-
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 2rem; /* adjust as needed */
-      }
-      .icon-tech {
-        font-size: 1.6rem;
-      }
-
-    }
-
-    @media (max-width: 480px) {
-      header h1 {
-        font-size: 1.6rem; /* for very small screens */
-      }
-      .icon-tech {
-        font-size: 1.4rem;
-      }
-      .card-custom {
-        padding: 17px;
-      }
-    }
-
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventCraft - Premium Event Management</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            box-sizing: border-box;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 10s ease infinite;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .hero-pattern {
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(255,215,0,0.1) 2px, transparent 2px),
+                radial-gradient(circle at 75% 75%, rgba(138,43,226,0.1) 2px, transparent 2px);
+            background-size: 80px 80px;
+            animation: patternMove 25s linear infinite;
+        }
+        
+        @keyframes patternMove {
+            0% { background-position: 0 0, 40px 40px; }
+            100% { background-position: 80px 80px, 120px 120px; }
+        }
+        
+        .image-slider {
+            position: relative;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        
+        .slide.active {
+            opacity: 1;
+        }
+        
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(0,0,0,0.7), rgba(0,0,0,0.3));
+        }
+        
+        .slide-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 10;
+            color: white;
+            opacity: 0;
+            animation: slideContentIn 1s ease-out 0.5s forwards;
+        }
+        
+        @keyframes slideContentIn {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -30%);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+        }
+        
+        .floating {
+            animation: floating 6s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card-hover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,215,0,0.2), transparent);
+            transition: left 0.6s;
+        }
+        
+        .card-hover:hover::before {
+            left: 100%;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(255,215,0,0.2);
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-100px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(100px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: -5px;
+            left: 50%;
+            background: linear-gradient(90deg, #ffd700, #ff6b35);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .pulse-glow {
+            animation: pulseGlow 3s infinite;
+        }
+        
+        @keyframes pulseGlow {
+            0%, 100% { 
+                transform: scale(1);
+                box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+            }
+            50% { 
+                transform: scale(1.05);
+                box-shadow: 0 0 40px rgba(255, 215, 0, 0.8);
+            }
+        }
+        
+        .typewriter {
+            overflow: hidden;
+            border-right: 3px solid rgba(255,215,0,0.75);
+            white-space: nowrap;
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: rgba(255,215,0,0.75); }
+        }
+        
+        .bounce-in {
+            animation: bounceIn 1s ease-out;
+        }
+        
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+            70% {
+                transform: scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        .rotate-on-hover {
+            transition: transform 0.3s ease;
+        }
+        
+        .rotate-on-hover:hover {
+            transform: rotate(360deg);
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .text-glow {
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+        }
+        
+        .counter {
+            font-variant-numeric: tabular-nums;
+        }
+        
+        .sparkle {
+            position: relative;
+        }
+        
+        .sparkle::before {
+            content: '✨';
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            animation: sparkleRotate 2s linear infinite;
+        }
+        
+        @keyframes sparkleRotate {
+            0% { transform: rotate(0deg) scale(0.8); opacity: 0.7; }
+            50% { transform: rotate(180deg) scale(1.2); opacity: 1; }
+            100% { transform: rotate(360deg) scale(0.8); opacity: 0.7; }
+        }
+        
+        .wave-animation {
+            background: linear-gradient(45deg, #ffd700, #ff6b35, #8a2be2, #ffd700);
+            background-size: 400% 400%;
+            animation: wave 4s ease-in-out infinite;
+        }
+        
+        @keyframes wave {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .dark-card {
+            background: linear-gradient(145deg, #1e1e2e, #2a2a3e);
+            border: 1px solid rgba(255, 215, 0, 0.1);
+        }
+        
+        .dark-section {
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+        }
+        
+        .slide-indicators {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 20;
+        }
+        
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .indicator.active {
+            background: #ffd700;
+            transform: scale(1.2);
+        }
+    </style>
 </head>
-<body>
-  <header data-aos="fade-down">
-    <img src="logo.png" alt="Benya B M">
-    <h1>Benya B M </h1>
-    <p><i class="fas fa-code icon-tech"></i> Full Stack Web Developer | Laravel, React, Python, NodeJs</p>
-    <p><i class="fas fa-map-marker-alt icon-tech"></i> Kanyakumari, IN | <a href="tel:9442067639">9442067639</a> | <a href="mailto:benyabenz1999@gmail.com">benyabenz1999@gmail.com</a> | <a href="https://www.linkedin.com/in/benya-benz/" target="_blank">LinkedIn</a></p>
-  </header>
+<body class="font-sans bg-gray-900 text-white overflow-x-hidden">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-effect transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="text-2xl font-bold text-yellow-400 sparkle">
+                        🎉 EventCraft
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="nav-link text-white hover:text-yellow-400 px-3 py-2 text-sm font-medium">Home</a>
+                        <a href="#about" class="nav-link text-white hover:text-yellow-400 px-3 py-2 text-sm font-medium">About Us</a>
+                        <a href="#services" class="nav-link text-white hover:text-yellow-400 px-3 py-2 text-sm font-medium">Services</a>
+                        <a href="#events" class="nav-link text-white hover:text-yellow-400 px-3 py-2 text-sm font-medium">Events</a>
+                        <a href="#testimonials" class="nav-link text-white hover:text-yellow-400 px-3 py-2 text-sm font-medium">Testimonials</a>
+                        <a href="#contact" class="nav-link text-white hover:text-yellow-400 px-3 py-2 text-sm font-medium">Contact</a>
+                    </div>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-white rotate-on-hover">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden glass-effect border-t border-white/20">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#home" class="block px-3 py-2 text-white hover:text-yellow-400 transition-colors">Home</a>
+                <a href="#about" class="block px-3 py-2 text-white hover:text-yellow-400 transition-colors">About Us</a>
+                <a href="#services" class="block px-3 py-2 text-white hover:text-yellow-400 transition-colors">Services</a>
+                <a href="#events" class="block px-3 py-2 text-white hover:text-yellow-400 transition-colors">Events</a>
+                <a href="#testimonials" class="block px-3 py-2 text-white hover:text-yellow-400 transition-colors">Testimonials</a>
+                <a href="#contact" class="block px-3 py-2 text-white hover:text-yellow-400 transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
 
-  <section id="about" data-aos="fade-up">
-    <div class="container">
-      <h2 class="section-title">About Me</h2>
-      <p class="text-center px-md-5">
-        A dedicated Web Developer with 4.4 years of experience building scalable web applications and APIs using Laravel, Node.js, React, and MySQL/MongoDB. I’ve worked on a wide range of projects, from e-commerce platforms and billing systems to chatbots and mind map tools. Passionate about clean code, real-world problem solving, and continuous learning.
-      </p>
-    </div>
-  </section>
+    <!-- Hero Section with Image Slider -->
+    <section id="home" class="gradient-bg hero-pattern min-h-full flex items-center pt-16 relative overflow-hidden">
+        <div class="absolute inset-0">
+            <div class="floating absolute top-20 left-10 text-6xl opacity-20">🎊</div>
+            <div class="floating absolute top-40 right-20 text-4xl opacity-30" style="animation-delay: -2s;">🎈</div>
+            <div class="floating absolute bottom-40 left-20 text-5xl opacity-25" style="animation-delay: -4s;">🎭</div>
+            <div class="floating absolute bottom-20 right-10 text-3xl opacity-35" style="animation-delay: -1s;">🎪</div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Left Content -->
+                <div class="text-left">
+                    <h1 class="text-4xl md:text-7xl font-bold text-white mb-6 bounce-in">
+                        Creating Unforgettable
+                        <span class="block text-yellow-400 text-glow typewriter">Experiences</span>
+                    </h1>
+                    <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl fade-in leading-relaxed" style="animation-delay: 0.5s;">
+                        From intimate gatherings to grand celebrations, we bring your vision to life with precision, creativity, and passion that exceeds expectations.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 sm:space-x-4 sm:space-y-0 fade-in justify-center lg:justify-start" style="animation-delay: 1s;">
+                        <button class="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold py-3 sm:py-4 px-6 sm:px-10 rounded-full transition duration-300 pulse-glow transform hover:scale-105 text-sm sm:text-base">
+                            Plan Your Event
+                        </button>
+                        <button class="glass-effect text-white hover:bg-white/20 font-bold py-3 sm:py-4 px-6 sm:px-10 rounded-full transition duration-300 transform hover:scale-105 text-sm sm:text-base">
+                            View Portfolio
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Right Image Slider -->
+                <div class="relative h-96 lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl fade-in" style="animation-delay: 0.7s;">
+                    <div class="image-slider">
+                        <!-- Slide 1: Corporate Event -->
+                        <div class="slide active" style="background-image: linear-gradient(45deg, rgba(0,0,0,0.6), rgba(0,0,0,0.3)), url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDYwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI2MDAiIGhlaWdodD0iNDAwIiBmaWxsPSJ1cmwoI2dyYWRpZW50MSkiLz4KPHN2ZyB4PSIxMDAiIHk9IjEwMCIgd2lkdGg9IjQwMCIgaGVpZ2h0PSIyMDAiPgo8cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjEpIiByeD0iMTAiLz4KPHN2ZyB4PSI1MCIgeT0iNTAiPgo8Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSIzMCIgZmlsbD0iIzMzNzNkYyIvPgo8dGV4dCB4PSI1MCIgeT0iNTUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IndoaXRlIiBmb250LXNpemU9IjE0Ij7wn5OKIE9mZmljZTwvdGV4dD4KPC9zdmc+CjxzdmcgeD0iMTUwIiB5PSI1MCI+CjxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBmaWxsPSIjMTBiOTgxIiByeD0iNSIvPgo8dGV4dCB4PSI1MCIgeT0iNTUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IndoaXRlIiBmb250LXNpemU9IjEyIj7wn5OQIFN0YWdlPC90ZXh0Pgo8L3N2Zz4KPHN2ZyB4PSIyNzAiIHk9IjUwIj4KPGNpcmNsZSBjeD0iNTAiIGN5PSI1MCIgcj0iMzAiIGZpbGw9IiNmNTk1MjgiLz4KPHR4dCB4PSI1MCIgeT0iNTUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IndoaXRlIiBmb250LXNpemU9IjE0Ij7wn46kIEF1ZGllbmNlPC90ZXh0Pgo8L3N2Zz4KPC9zdmc+CjxkZWZzPgo8bGluZWFyR3JhZGllbnQgaWQ9ImdyYWRpZW50MSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMxZTFlMmUiLz4KPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMmEyYTNlIi8+CjwvbGluZWFyR3JhZGllbnQ+CjwvZGVmcz4KPC9zdmc+');">
+                            <div class="slide-content">
+                                <div class="text-6xl mb-4">💼</div>
+                                <h3 class="text-3xl font-bold mb-4">Corporate Excellence</h3>
+                                <p class="text-lg text-gray-200 mb-4">Professional conferences and business events</p>
+                                <div class="flex justify-center space-x-4 text-sm">
+                                    <span class="bg-blue-600 px-3 py-1 rounded-full">Conferences</span>
+                                    <span class="bg-green-600 px-3 py-1 rounded-full">Seminars</span>
+                                    <span class="bg-purple-600 px-3 py-1 rounded-full">Launches</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Slide 2: Wedding -->
+                        <div class="slide" style="background-image: linear-gradient(45deg, rgba(0,0,0,0.6), rgba(0,0,0,0.3)), url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDYwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI2MDAiIGhlaWdodD0iNDAwIiBmaWxsPSJ1cmwoI2dyYWRpZW50MikiLz4KPHN2ZyB4PSIxNTAiIHk9IjEwMCI+CjxjaXJjbGUgY3g9IjE1MCIgY3k9IjEwMCIgcj0iODAiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIvPgo8Y2lyY2xlIGN4PSIxNTAiIGN5PSIxMDAiIHI9IjYwIiBmaWxsPSJyZ2JhKDI1NSwyMTksNzMsMC4zKSIvPgo8Y2lyY2xlIGN4PSIxNTAiIGN5PSIxMDAiIHI9IjQwIiBmaWxsPSJyZ2JhKDI1NSwyMTksNzMsMC41KSIvPgo8dGV4dCB4PSIxNTAiIHk9IjExMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0id2hpdGUiIGZvbnQtc2l6ZT0iMjQiPvCfkpI8L3RleHQ+CjwvdGV4dD4KPC9zdmc+CjxzdmcgeD0iNTAiIHk9IjUwIj4KPHBhdGggZD0iTTAgNTBMMjAgMzBMNDAgNTBMMjAgNzBaIiBmaWxsPSIjZmY2Yjk2Ii8+Cjx0ZXh0IHg9IjIwIiB5PSI5MCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0id2hpdGUiIGZvbnQtc2l6ZT0iMTAiPkZsb3dlcnM8L3RleHQ+CjwvdGV4dD4KPC9zdmc+CjxzdmcgeD0iMzUwIiB5PSI1MCI+CjxyZWN0IHdpZHRoPSI4MCIgaGVpZ2h0PSI2MCIgZmlsbD0iIzg4NTVmZiIgcng9IjUiLz4KPHR4dCB4PSI0MCIgeT0iNDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IndoaXRlIiBmb250LXNpemU9IjEwIj5WZW51ZTwvdGV4dD4KPC9zdmc+CjxkZWZzPgo8bGluZWFyR3JhZGllbnQgaWQ9ImdyYWRpZW50MiIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNmZjZiOTYiLz4KPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZjA2MjkyIi8+CjwvbGluZWFyR3JhZGllbnQ+CjwvZGVmcz4KPC9zdmc+');">
+                            <div class="slide-content">
+                                <div class="text-6xl mb-4">💒</div>
+                                <h3 class="text-3xl font-bold mb-4">Dream Weddings</h3>
+                                <p class="text-lg text-gray-200 mb-4">Magical moments that last a lifetime</p>
+                                <div class="flex justify-center space-x-4 text-sm">
+                                    <span class="bg-pink-600 px-3 py-1 rounded-full">Ceremonies</span>
+                                    <span class="bg-rose-600 px-3 py-1 rounded-full">Receptions</span>
+                                    <span class="bg-red-600 px-3 py-1 rounded-full">Destinations</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Slide 3: Social Events -->
+                        <div class="slide" style="background-image: linear-gradient(45deg, rgba(0,0,0,0.6), rgba(0,0,0,0.3)), url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDYwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI2MDAiIGhlaWdodD0iNDAwIiBmaWxsPSJ1cmwoI2dyYWRpZW50MykiLz4KPHN2ZyB4PSIxMDAiIHk9IjgwIj4KPGNpcmNsZSBjeD0iNzAiIGN5PSI3MCIgcj0iNDAiIGZpbGw9InJnYmEoMjU1LDIxNSw3MywwLjMpIi8+CjxjaXJjbGUgY3g9IjE1MCIgY3k9IjcwIiByPSI0MCIgZmlsbD0icmdiYSgyNTUsMTA3LDUzLDAuMykiLz4KPGNpcmNsZSBjeD0iMjMwIiBjeT0iNzAiIHI9IjQwIiBmaWxsPSJyZ2JhKDEzOCw0MywyMjYsMC4zKSIvPgo8Y2lyY2xlIGN4PSIzMTAiIGN5PSI3MCIgcj0iNDAiIGZpbGw9InJnYmEoMjU1LDIxNSw3MywwLjMpIi8+Cjx0ZXh0IHg9IjE5MCIgeT0iMTUwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSIgZm9udC1zaXplPSIyMCI+8J+OiSBDZWxlYnJhdGlvbjwvdGV4dD4KPC9zdmc+CjxzdmcgeD0iNTAiIHk9IjIwMCI+CjxyZWN0IHdpZHRoPSI1MDAiIGhlaWdodD0iMTAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMSkiIHJ4PSIxMCIvPgo8dGV4dCB4PSIyNTAiIHk9IjU1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSIgZm9udC1zaXplPSIxNiI+8J+OtiDwn46kIPCfjqUg8J+OuCDwn46pPC90ZXh0Pgo8L3N2Zz4KPGRlZnM+CjxsaW5lYXJHcmFkaWVudCBpZD0iZ3JhZGllbnQzIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZDcwMCIvPgo8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZjZiMzUiLz4KPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8L3N2Zz4=');">
+                            <div class="slide-content">
+                                <div class="text-6xl mb-4">🎊</div>
+                                <h3 class="text-3xl font-bold mb-4">Social Celebrations</h3>
+                                <p class="text-lg text-gray-200 mb-4">Unforgettable parties and gatherings</p>
+                                <div class="flex justify-center space-x-4 text-sm">
+                                    <span class="bg-yellow-600 px-3 py-1 rounded-full">Birthdays</span>
+                                    <span class="bg-orange-600 px-3 py-1 rounded-full">Anniversaries</span>
+                                    <span class="bg-indigo-600 px-3 py-1 rounded-full">Graduations</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide Indicators -->
+                    <div class="slide-indicators">
+                        <div class="indicator active" data-slide="0"></div>
+                        <div class="indicator" data-slide="1"></div>
+                        <div class="indicator" data-slide="2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <section id="projects" data-aos="fade-up">
-    <div class="container">
-      <h2 class="section-title">Projects</h2>
-      <div class="card-custom">
-        <h5><i class="fab fa-whatsapp icon-tech"></i> Rentla</h5>
-        <p>Developed using Laravel, Rentla includes an admin panel, agent app, and customer app for managing rental operations. Built robust APIs and backend workflows to support multi-role access and seamless interaction.</p>
+     <!-- About Us Section -->
+    <section id="about" class="py-12 sm:py-20 dark-section relative overflow-hidden">
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute top-10 left-2 sm:left-10 text-6xl sm:text-9xl rotate-12">🎨</div>
+            <div class="absolute bottom-10 right-2 sm:right-10 text-6xl sm:text-9xl -rotate-12">🎯</div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-12 sm:mb-16 fade-in">
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6">About EventCraft</h2>
+                <div class="w-16 sm:w-24 h-1 wave-animation mx-auto mb-4 sm:mb-6"></div>
+                <p class="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto px-4">
+                    With over a decade of experience, we've mastered the art of creating extraordinary events that leave lasting impressions and unforgettable memories.
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8 sm:gap-16 items-center">
+                <div class="slide-in-left">
+                    <h3 class="text-2xl sm:text-3xl font-bold text-white mb-6 sm:mb-8">Our Story</h3>
+                    <p class="text-gray-300 mb-4 sm:mb-6 text-base sm:text-lg leading-relaxed">
+                        Founded in 2013, EventCraft began with a simple mission: to transform ordinary moments into extraordinary memories. Our team of passionate event professionals brings creativity, attention to detail, and flawless execution to every project.
+                    </p>
+                    <p class="text-gray-300 mb-6 sm:mb-8 text-base sm:text-lg leading-relaxed">
+                        From corporate conferences to dream weddings, we've successfully managed over 1,000 events, earning the trust of clients across the region and building lasting relationships.
+                    </p>
+                    <div class="grid grid-cols-3 gap-3 sm:gap-6 text-center">
+                        <div class="card-hover dark-card rounded-lg sm:rounded-xl p-3 sm:p-6 shadow-lg">
+                            <div class="text-2xl sm:text-4xl font-bold text-yellow-400 counter" data-target="1000">0</div>
+                            <div class="text-xs sm:text-sm text-gray-400 font-medium">Events Managed</div>
+                        </div>
+                        <div class="card-hover dark-card rounded-lg sm:rounded-xl p-3 sm:p-6 shadow-lg">
+                            <div class="text-2xl sm:text-4xl font-bold text-yellow-400 counter" data-target="10">0</div>
+                            <div class="text-xs sm:text-sm text-gray-400 font-medium">Years Experience</div>
+                        </div>
+                        <div class="card-hover dark-card rounded-lg sm:rounded-xl p-3 sm:p-6 shadow-lg">
+                            <div class="text-2xl sm:text-4xl font-bold text-yellow-400 counter" data-target="98">0</div>
+                            <div class="text-xs sm:text-sm text-gray-400 font-medium">Client Satisfaction</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-in-right">
+                    <div class="bg-gradient-to-br from-yellow-500 via-orange-500 to-red-500 rounded-2xl p-8 text-white shadow-2xl transform hover:scale-105 transition-transform duration-300">
+                        <h4 class="text-3xl font-bold mb-6 text-center">Why Choose Us?</h4>
+                        <ul class="space-y-4">
+                            <li class="flex items-center transform hover:translate-x-2 transition-transform">
+                                <span class="text-yellow-200 mr-4 text-2xl">✓</span>
+                                <span class="text-lg">Personalized event planning approach</span>
+                            </li>
+                            <li class="flex items-center transform hover:translate-x-2 transition-transform">
+                                <span class="text-yellow-200 mr-4 text-2xl">✓</span>
+                                <span class="text-lg">Experienced team of professionals</span>
+                            </li>
+                            <li class="flex items-center transform hover:translate-x-2 transition-transform">
+                                <span class="text-yellow-200 mr-4 text-2xl">✓</span>
+                                <span class="text-lg">Comprehensive vendor network</span>
+                            </li>
+                            <li class="flex items-center transform hover:translate-x-2 transition-transform">
+                                <span class="text-yellow-200 mr-4 text-2xl">✓</span>
+                                <span class="text-lg">24/7 event day coordination</span>
+                            </li>
+                            <li class="flex items-center transform hover:translate-x-2 transition-transform">
+                                <span class="text-yellow-200 mr-4 text-2xl">✓</span>
+                                <span class="text-lg">Budget-friendly solutions</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-      </div>
-      <div class="card-custom">
-        <h5><i class="fas fa-project-diagram icon-tech"></i> Chat Bot, Mind Map</h5>
-        <p>Developed a real-time chatbot using Node.js and Gemini API for intelligent interactions. Also implemented an interactive mind map tool using Express.js, React, and MongoDB for visualizing and organizing ideas with persistent data storage.</p>
+    <!-- Services Section -->
+    <section id="services" class="py-12 sm:py-20 bg-gray-900 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute top-20 right-2 sm:right-20 text-5xl sm:text-8xl">⚡</div>
+            <div class="absolute bottom-20 left-2 sm:left-20 text-5xl sm:text-8xl">🚀</div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-12 sm:mb-16 fade-in">
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6">Our Services</h2>
+                <div class="w-16 sm:w-24 h-1 wave-animation mx-auto mb-4 sm:mb-6"></div>
+                <p class="text-lg sm:text-xl text-gray-300 px-4">Comprehensive event management solutions tailored to your unique needs</p>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                <div class="card-hover dark-card rounded-xl sm:rounded-2xl shadow-xl p-6 sm:p-8 border-t-4 border-yellow-400 fade-in group">
+                    <div class="text-4xl sm:text-6xl mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300">💼</div>
+                    <h3 class="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4">Corporate Events</h3>
+                    <p class="text-gray-300 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">Professional conferences, seminars, product launches, and team building events that enhance your brand image and drive business success.</p>
+                    <ul class="text-xs sm:text-sm text-gray-400 space-y-2">
+                        <li class="flex items-center"><span class="text-yellow-400 mr-2">•</span> Conference Management</li>
+                        <li class="flex items-center"><span class="text-yellow-400 mr-2">•</span> Product Launches</li>
+                        <li class="flex items-center"><span class="text-yellow-400 mr-2">•</span> Team Building</li>
+                        <li class="flex items-center"><span class="text-yellow-400 mr-2">•</span> Award Ceremonies</li>
+                    </ul>
+                </div>
+                <div class="card-hover dark-card rounded-xl sm:rounded-2xl shadow-xl p-6 sm:p-8 border-t-4 border-orange-400 fade-in group" style="animation-delay: 0.2s;">
+                    <div class="text-4xl sm:text-6xl mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300">💒</div>
+                    <h3 class="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4">Weddings</h3>
+                    <p class="text-gray-300 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">Dream weddings planned to perfection, from intimate ceremonies to grand celebrations that reflect your unique love story.</p>
+                    <ul class="text-xs sm:text-sm text-gray-400 space-y-2">
+                        <li class="flex items-center"><span class="text-orange-400 mr-2">•</span> Wedding Planning</li>
+                        <li class="flex items-center"><span class="text-orange-400 mr-2">•</span> Venue Selection</li>
+                        <li class="flex items-center"><span class="text-orange-400 mr-2">•</span> Vendor Coordination</li>
+                        <li class="flex items-center"><span class="text-orange-400 mr-2">•</span> Day-of Coordination</li>
+                    </ul>
+                </div>
+                <div class="card-hover dark-card rounded-xl sm:rounded-2xl shadow-xl p-6 sm:p-8 border-t-4 border-purple-400 fade-in group sm:col-span-2 lg:col-span-1" style="animation-delay: 0.4s;">
+                    <div class="text-4xl sm:text-6xl mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300">🎊</div>
+                    <h3 class="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4">Social Events</h3>
+                    <p class="text-gray-300 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">Birthday parties, anniversaries, graduations, and other special celebrations that bring people together for memorable moments.</p>
+                    <ul class="text-xs sm:text-sm text-gray-400 space-y-2">
+                        <li class="flex items-center"><span class="text-purple-400 mr-2">•</span> Birthday Parties</li>
+                        <li class="flex items-center"><span class="text-purple-400 mr-2">•</span> Anniversary Celebrations</li>
+                        <li class="flex items-center"><span class="text-purple-400 mr-2">•</span> Graduation Parties</li>
+                        <li class="flex items-center"><span class="text-purple-400 mr-2">•</span> Holiday Events</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
-      </div>
-      <div class="card-custom">
-        <h5><i class="fas fa-store icon-tech"></i> E-commerce Website and API – RCD, Vaannila, Eden</h5>
-        <p>Product listing and cart modules built using Laravel for smooth user experience.</p>
-      </div>
-      <div class="card-custom">
-        <h5><i class="fas fa-mobile-alt icon-tech"></i> Mobile App API – Ikonil, Student Canteen </h5>
-        <p>Developed RESTful APIs using Laravel and MySQL for Ikonil, an e-commerce platform, and Student Canteen, a monthly food subscription service. Ensured secure and efficient backend operations tailored to each application's needs.</p>
-      </div>
+    <!-- Events Portfolio Section -->
+    <section id="events" class="py-12 sm:py-20 dark-section relative overflow-hidden">
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute top-10 left-1/4 text-4xl sm:text-7xl rotate-45">📸</div>
+            <div class="absolute bottom-10 right-1/4 text-4xl sm:text-7xl -rotate-45">🎬</div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-12 sm:mb-16 fade-in">
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6">Recent Events</h2>
+                <div class="w-16 sm:w-24 h-1 wave-animation mx-auto mb-4 sm:mb-6"></div>
+                <p class="text-lg sm:text-xl text-gray-300 px-4">A glimpse into our recent successful events and celebrations</p>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                <div class="card-hover dark-card rounded-xl sm:rounded-2xl shadow-xl overflow-hidden fade-in group">
+                    <div class="h-48 sm:h-64 bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 flex items-center justify-center relative overflow-hidden">
+                        <span class="text-5xl sm:text-8xl group-hover:scale-125 transition-transform duration-500">🎪</span>
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300"></div>
+                    </div>
+                    <div class="p-4 sm:p-8">
+                        <h3 class="text-lg sm:text-2xl font-bold text-white mb-2 sm:mb-3">Tech Conference 2024</h3>
+                        <p class="text-gray-300 mb-3 sm:mb-4 leading-relaxed text-sm sm:text-base">A 3-day technology conference hosting 500+ attendees with keynote speakers, workshops, and networking sessions.</p>
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
+                            <span class="text-xs sm:text-sm text-gray-400 font-medium">March 2024</span>
+                            <span class="bg-blue-600 text-white px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-medium w-fit">Corporate</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-hover dark-card rounded-xl sm:rounded-2xl shadow-xl overflow-hidden fade-in group" style="animation-delay: 0.2s;">
+                    <div class="h-48 sm:h-64 bg-gradient-to-br from-pink-600 via-rose-600 to-red-600 flex items-center justify-center relative overflow-hidden">
+                        <span class="text-5xl sm:text-8xl group-hover:scale-125 transition-transform duration-500">💐</span>
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300"></div>
+                    </div>
+                    <div class="p-4 sm:p-8">
+                        <h3 class="text-lg sm:text-2xl font-bold text-white mb-2 sm:mb-3">Garden Wedding</h3>
+                        <p class="text-gray-300 mb-3 sm:mb-4 leading-relaxed text-sm sm:text-base">An elegant outdoor wedding ceremony with 150 guests in a beautiful botanical garden setting with live music.</p>
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
+                            <span class="text-xs sm:text-sm text-gray-400 font-medium">February 2024</span>
+                            <span class="bg-pink-600 text-white px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-medium w-fit">Wedding</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-hover dark-card rounded-xl sm:rounded-2xl shadow-xl overflow-hidden fade-in group sm:col-span-2 lg:col-span-1" style="animation-delay: 0.4s;">
+                    <div class="h-48 sm:h-64 bg-gradient-to-br from-yellow-600 via-orange-600 to-red-600 flex items-center justify-center relative overflow-hidden">
+                        <span class="text-5xl sm:text-8xl group-hover:scale-125 transition-transform duration-500">🎂</span>
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300"></div>
+                    </div>
+                    <div class="p-4 sm:p-8">
+                        <h3 class="text-lg sm:text-2xl font-bold text-white mb-2 sm:mb-3">50th Birthday Gala</h3>
+                        <p class="text-gray-300 mb-3 sm:mb-4 leading-relaxed text-sm sm:text-base">A sophisticated milestone birthday celebration with live entertainment, gourmet dining, and memorable moments.</p>
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
+                            <span class="text-xs sm:text-sm text-gray-400 font-medium">January 2024</span>
+                            <span class="bg-yellow-600 text-white px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-medium w-fit">Social</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-      <div class="card-custom">
-        <h5><i class="fas fa-cash-register icon-tech"></i> Billing Software – Chozha, Sundar Store, Senthoor Murugan, Osborne</h5>
-        <p>Developed a custom billing software using HTML, CSS, Bootstrap, JavaScript, Laravel, and MySQL. Designed for multiple retail stores to manage sales, inventory, and invoice generation with a user-friendly interface.</p>
-      </div>
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-12 sm:py-20 bg-gray-900 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute top-1/4 left-2 sm:left-10 text-6xl sm:text-9xl">💬</div>
+            <div class="absolute bottom-1/4 right-2 sm:right-10 text-6xl sm:text-9xl">⭐</div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-12 sm:mb-16 fade-in">
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6">What Our Clients Say</h2>
+                <div class="w-16 sm:w-24 h-1 wave-animation mx-auto mb-4 sm:mb-6"></div>
+                <p class="text-lg sm:text-xl text-gray-300 px-4">Don't just take our word for it - hear from our satisfied clients</p>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                <div class="card-hover glass-effect rounded-xl sm:rounded-2xl p-4 sm:p-8 fade-in group">
+                    <div class="flex items-center mb-4 sm:mb-6">
+                        <div class="flex text-yellow-400 text-lg sm:text-2xl group-hover:scale-110 transition-transform">
+                            ⭐⭐⭐⭐⭐
+                        </div>
+                    </div>
+                    <p class="text-gray-200 mb-4 sm:mb-6 italic text-sm sm:text-lg leading-relaxed">"EventCraft made our corporate conference absolutely flawless. Their attention to detail and professional approach exceeded our expectations in every way."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white font-bold mr-3 sm:mr-4 text-sm sm:text-xl">
+                            SM
+                        </div>
+                        <div>
+                            <div class="font-bold text-white text-sm sm:text-lg">Sarah Mitchell</div>
+                            <div class="text-gray-400 text-xs sm:text-base">CEO, TechCorp</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-hover glass-effect rounded-xl sm:rounded-2xl p-4 sm:p-8 fade-in group" style="animation-delay: 0.2s;">
+                    <div class="flex items-center mb-4 sm:mb-6">
+                        <div class="flex text-yellow-400 text-lg sm:text-2xl group-hover:scale-110 transition-transform">
+                            ⭐⭐⭐⭐⭐
+                        </div>
+                    </div>
+                    <p class="text-gray-200 mb-4 sm:mb-6 italic text-sm sm:text-lg leading-relaxed">"Our wedding was everything we dreamed of and more. The team handled every detail perfectly, allowing us to enjoy our special day completely stress-free."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-pink-500 to-red-500 rounded-full flex items-center justify-center text-white font-bold mr-3 sm:mr-4 text-sm sm:text-xl">
+                            JD
+                        </div>
+                        <div>
+                            <div class="font-bold text-white text-sm sm:text-lg">Jessica & David</div>
+                            <div class="text-gray-400 text-xs sm:text-base">Happy Couple</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-hover glass-effect rounded-xl sm:rounded-2xl p-4 sm:p-8 fade-in group sm:col-span-2 lg:col-span-1" style="animation-delay: 0.4s;">
+                    <div class="flex items-center mb-4 sm:mb-6">
+                        <div class="flex text-yellow-400 text-lg sm:text-2xl group-hover:scale-110 transition-transform">
+                            ⭐⭐⭐⭐⭐
+                        </div>
+                    </div>
+                    <p class="text-gray-200 mb-4 sm:mb-6 italic text-sm sm:text-lg leading-relaxed">"Professional, creative, and reliable. EventCraft transformed our vision into reality for our anniversary celebration. Highly recommended to everyone!"</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-full flex items-center justify-center text-white font-bold mr-3 sm:mr-4 text-sm sm:text-xl">
+                            MR
+                        </div>
+                        <div>
+                            <div class="font-bold text-white text-sm sm:text-lg">Michael Roberts</div>
+                            <div class="text-gray-400 text-xs sm:text-base">Business Owner</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-      
-    </div>
-  </section>
+    <!-- Contact Section -->
+    <section id="contact" class="py-12 sm:py-20 gradient-bg relative overflow-hidden">
+        <div class="absolute inset-0">
+            <div class="floating absolute top-20 left-2 sm:left-10 text-3xl sm:text-6xl opacity-20">📧</div>
+            <div class="floating absolute top-40 right-2 sm:right-20 text-2xl sm:text-4xl opacity-30" style="animation-delay: -2s;">📞</div>
+            <div class="floating absolute bottom-40 left-2 sm:left-20 text-3xl sm:text-5xl opacity-25" style="animation-delay: -4s;">📍</div>
+            <div class="floating absolute bottom-20 right-2 sm:right-10 text-2xl sm:text-3xl opacity-35" style="animation-delay: -1s;">🕒</div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-12 sm:mb-16 fade-in">
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6 text-glow">Get In Touch</h2>
+                <div class="w-16 sm:w-24 h-1 bg-yellow-400 mx-auto mb-4 sm:mb-6"></div>
+                <p class="text-lg sm:text-xl text-gray-200 px-4">Ready to plan your next unforgettable event? Let's make it happen!</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8 sm:gap-16">
+                <div class="slide-in-left">
+                    <h3 class="text-2xl sm:text-3xl font-bold text-white mb-6 sm:mb-8">Contact Information</h3>
+                    <div class="space-y-4 sm:space-y-6">
+                        <div class="flex items-start text-white group">
+                            <span class="text-2xl sm:text-3xl mr-4 sm:mr-6 group-hover:scale-125 transition-transform duration-300 mt-1">📍</span>
+                            <div>
+                                <div class="font-semibold text-base sm:text-lg">Address</div>
+                                <div class="text-gray-300 text-sm sm:text-base">123 Event Street, City Center, NY 10001</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start text-white group">
+                            <span class="text-2xl sm:text-3xl mr-4 sm:mr-6 group-hover:scale-125 transition-transform duration-300 mt-1">📞</span>
+                            <div>
+                                <div class="font-semibold text-base sm:text-lg">Phone</div>
+                                <div class="text-gray-300 text-sm sm:text-base">+1 (555) 123-4567</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start text-white group">
+                            <span class="text-2xl sm:text-3xl mr-4 sm:mr-6 group-hover:scale-125 transition-transform duration-300 mt-1">✉️</span>
+                            <div>
+                                <div class="font-semibold text-base sm:text-lg">Email</div>
+                                <div class="text-gray-300 text-sm sm:text-base">hello@eventcraft.com</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start text-white group">
+                            <span class="text-2xl sm:text-3xl mr-4 sm:mr-6 group-hover:scale-125 transition-transform duration-300 mt-1">🕒</span>
+                            <div>
+                                <div class="font-semibold text-base sm:text-lg">Business Hours</div>
+                                <div class="text-gray-300 text-sm sm:text-base">Mon-Fri: 9AM-6PM, Sat: 10AM-4PM</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-in-right">
+                    <form id="contact-form" class="glass-effect rounded-xl sm:rounded-2xl p-4 sm:p-8 shadow-2xl">
+                        <div class="grid sm:grid-cols-2 gap-3 sm:gap-4 mb-4 sm:mb-6">
+                            <input type="text" placeholder="First Name" class="w-full px-4 sm:px-6 py-3 sm:py-4 rounded-lg sm:rounded-xl bg-white/10 text-white placeholder-gray-400 border border-white/20 focus:border-yellow-400 focus:outline-none transition-colors text-sm sm:text-base">
+                            <input type="text" placeholder="Last Name" class="w-full px-4 sm:px-6 py-3 sm:py-4 rounded-lg sm:rounded-xl bg-white/10 text-white placeholder-gray-400 border border-white/20 focus:border-yellow-400 focus:outline-none transition-colors text-sm sm:text-base">
+                        </div>
+                        <input type="email" placeholder="Email Address" class="w-full px-4 sm:px-6 py-3 sm:py-4 rounded-lg sm:rounded-xl bg-white/10 text-white placeholder-gray-400 border border-white/20 focus:border-yellow-400 focus:outline-none mb-4 sm:mb-6 transition-colors text-sm sm:text-base">
+                        <input type="tel" placeholder="Phone Number" class="w-full px-4 sm:px-6 py-3 sm:py-4 rounded-lg sm:rounded-xl bg-white/10 text-white placeholder-gray-400 border border-white/20 focus:border-yellow-400 focus:outline-none mb-4 sm:mb-6 transition-colors text-sm sm:text-base">
+                        <select class="w-full px-4 sm:px-6 py-3 sm:py-4 rounded-lg sm:rounded-xl bg-white/10 text-white border border-white/20 focus:border-yellow-400 focus:outline-none mb-4 sm:mb-6 transition-colors text-sm sm:text-base">
+                            <option value="" class="bg-gray-800">Event Type</option>
+                            <option value="corporate" class="bg-gray-800">Corporate Event</option>
+                            <option value="wedding" class="bg-gray-800">Wedding</option>
+                            <option value="social" class="bg-gray-800">Social Event</option>
+                            <option value="other" class="bg-gray-800">Other</option>
+                        </select>
+                        <textarea placeholder="Tell us about your event..." rows="3" class="w-full px-4 sm:px-6 py-3 sm:py-4 rounded-lg sm:rounded-xl bg-white/10 text-white placeholder-gray-400 border border-white/20 focus:border-yellow-400 focus:outline-none mb-6 sm:mb-8 transition-colors text-sm sm:text-base"></textarea>
+                        <button type="submit" class="w-full bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold py-3 sm:py-4 px-4 sm:px-6 rounded-lg sm:rounded-xl transition duration-300 transform hover:scale-105 pulse-glow text-sm sm:text-base">
+                            Send Message ✨
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <section id="experience" data-aos="fade-up">
-    <div class="container">
-      <h2 class="section-title">Experience</h2>
-      <div class="card-custom">
-        <h5><i class="fas fa-laptop-code icon-tech"></i> Web Developer – AK Infopark</h5>
-        <small class="text-muted" style="color: white !important;">Aug 2023 – May 2025</small>
-        <ul class="mt-2">
-          <li>Managed multiple full-stack web development projects using a diverse tech stack including PHP, Laravel, Node.js, Express.js, React.js, CodeIgniter, and Python, ensuring timely delivery and adherence to high-quality standards.</li>
-          <li> Developed and customized dynamic, responsive websites with HTML, CSS, JavaScript, Bootstrap, and jQuery, resulting in a 90% improvement in site performance and load times.</li>
-          <li> Integrated third-party APIs and built backend services using Node.js, Express.js, and Laravel ensuring smooth interoperability and improved user experience.</li>
-          <li>Designed and optimized databases using SQL and MongoDB, enabling efficient data storage and retrieval for scalable applications.</li>
-          <li> Led training and internship programs for college students and external participants, mentoring them on core web development technologies such as HTML, CSS, JavaScript, PHP, Laravel, and Bootstrap, fostering practical, real-world skills.</li>
-        </ul>
-      </div>
+    <!-- Footer -->
+    <footer class="bg-black text-white py-12 sm:py-16 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute top-10 left-1/4 text-5xl sm:text-8xl">🌟</div>
+            <div class="absolute bottom-10 right-1/4 text-5xl sm:text-8xl">🎉</div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+                <div class="fade-in sm:col-span-2 lg:col-span-1">
+                    <div class="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 sparkle text-yellow-400">🎉 EventCraft</div>
+                    <p class="text-gray-400 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">Creating unforgettable experiences through exceptional event management and innovative solutions.</p>
+                    <div class="flex space-x-3 sm:space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-yellow-400 transition duration-300 text-xl sm:text-2xl transform hover:scale-125">📘</a>
+                        <a href="#" class="text-gray-400 hover:text-yellow-400 transition duration-300 text-xl sm:text-2xl transform hover:scale-125">📷</a>
+                        <a href="#" class="text-gray-400 hover:text-yellow-400 transition duration-300 text-xl sm:text-2xl transform hover:scale-125">🐦</a>
+                        <a href="#" class="text-gray-400 hover:text-yellow-400 transition duration-300 text-xl sm:text-2xl transform hover:scale-125">💼</a>
+                    </div>
+                </div>
+                <div class="fade-in" style="animation-delay: 0.2s;">
+                    <h4 class="text-lg sm:text-xl font-semibold mb-4 sm:mb-6 text-yellow-400">Services</h4>
+                    <ul class="space-y-2 sm:space-y-3 text-gray-400 text-sm sm:text-base">
+                        <li><a href="#" class="hover:text-yellow-400 transition duration-300 transform hover:translate-x-2 inline-block">Corporate Events</a></li>
+                        <li><a href="#" class="hover:text-yellow-400 transition duration-300 transform hover:translate-x-2 inline-block">Weddings</a></li>
+                        <li><a href="#" class="hover:text-yellow-400 transition duration-300 transform hover:translate-x-2 inline-block">Social Events</a></li>
+                        <li><a href="#" class="hover:text-yellow-400 transition duration-300 transform hover:translate-x-2 inline-block">Event Planning</a></li>
+                    </ul>
+                </div>
+                <div class="fade-in" style="animation-delay: 0.4s;">
+                    <h4 class="text-lg sm:text-xl font-semibold mb-4 sm:mb-6 text-yellow-400">Company</h4>
+                    <ul class="space-y-2 sm:space-y-3 text-gray-400 text-sm sm:text-base">
+                        <li><a href="#about" class="hover:text-yellow-400 transition duration-300 transform hover:translate-x-2 inline-block">About Us</a></li>
+                        <li><a href="#events" class="hover:text-yellow-400 transition duration-300 transform hover:translate-x-2 inline-block">Portfolio</a></li>
+                        <li><a href="#testimonials" class="hover:text-yellow-400 transition duration-300 transform hover:translate-x-2 inline-block">Testimonials</a></li>
+                        <li><a href="#contact" class="hover:text-yellow-400 transition duration-300 transform hover:translate-x-2 inline-block">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="fade-in sm:col-span-2 lg:col-span-1" style="animation-delay: 0.6s;">
+                    <h4 class="text-lg sm:text-xl font-semibold mb-4 sm:mb-6 text-yellow-400">Newsletter</h4>
+                    <p class="text-gray-400 mb-4 sm:mb-6 text-sm sm:text-base">Subscribe for event planning tips and exclusive updates.</p>
+                    <form id="newsletter-form" class="flex flex-col sm:flex-row gap-2 sm:gap-0">
+                        <input type="email" placeholder="Your email" class="flex-1 px-3 sm:px-4 py-2 sm:py-3 bg-gray-800 text-white rounded-lg sm:rounded-l-xl sm:rounded-r-none focus:outline-none focus:ring-2 focus:ring-yellow-400 text-sm sm:text-base">
+                        <button type="submit" class="bg-yellow-600 hover:bg-yellow-700 px-4 sm:px-6 py-2 sm:py-3 rounded-lg sm:rounded-r-xl sm:rounded-l-none transition duration-300 transform hover:scale-105 text-sm sm:text-base font-medium">
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 sm:mt-12 pt-6 sm:pt-8 text-center text-gray-400">
+                <p class="text-xs sm:text-sm">&copy; 2024 EventCraft. All rights reserved. | Privacy Policy | Terms of Service</p>
+            </div>
+        </div>
+    </footer>
 
-      <div class="card-custom">
-        <h5><i class="fas fa-laptop-code icon-tech"></i> Web Developer – Accenture India Pvt Ltd</h5>
-        <small class="text-muted" style="color: white !important;">May 2023 – Jul 2023</small>
-        <ul class="mt-2">
-          <li> Developed and customized AEM components, templates, and workflows to deliver scalable and responsive web applications, improving content management efficiency by 40%</li>
-          <li>  Collaborated with cross-functional teams to optimize AEM performance, implementing caching strategies and load balancing techniques that reduced page load times by 30%</li>
-          
-        </ul>
-      </div>
+    <script>
+        // Image slider functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const indicators = document.querySelectorAll('.indicator');
+        const totalSlides = slides.length;
 
-      <div class="card-custom">
-        <h5><i class="fas fa-laptop-code icon-tech"></i> Web Developer –  Shanthi IT Solution</h5>
-        <small class="text-muted" style="color: white !important;">Dec 2020 – Mar 2023</small>
-        <ul class="mt-2">
-          <li>  Designed and developed responsive websites using HTML, CSS, JavaScript, and Bootstrap,  ensuring cross-browser compatibility and improved user experience</li>
-          <li>  Implemented backend functionalities using core PHP to manage dynamic content, user authentication, and database integration</li>
-          <li> Mentored and trained internship college students, providing guidance on web development best practices and hands-on coding projects</li>
-          
-        </ul>
-      </div>
-    </div>
-  </section>
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            indicators.forEach(indicator => indicator.classList.remove('active'));
+            
+            slides[index].classList.add('active');
+            indicators[index].classList.add('active');
+        }
 
-  <section id="education" data-aos="fade-up">
-    <div class="container">
-      <h2 class="section-title">Education</h2>
-      <div class="card-custom">
-        <p><strong><i class="fas fa-graduation-cap icon-tech"></i> B.E in Computer Science Engineering</strong><br> National College Of Engineering (2016–2020)</p>
-        <p><strong><i class="fas fa-school icon-tech"></i> HSS</strong><br> LMS Girls Higher Secondary School</p>
-      </div>
-    </div>
-  </section>
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            showSlide(currentSlide);
+        }
 
-  <section id="skills" data-aos="fade-up">
-    <div class="container">
-      <h2 class="section-title">Skills</h2>
-      <div class="skills text-center">
-        <span>Laravel</span><span>CodeIgniter</span><span>React JS</span><span>Node JS</span><span>Express JS</span><span>JavaScript</span><span>MySQL</span><span>MongoDB</span>
-        <span>Postman</span><span>Python</span><span>HTML</span><span>CSS</span><span>Bootstrap</span><span>Git</span>
-      </div>
-    </div>
-  </section>
+        // Auto-advance slides
+        setInterval(nextSlide, 5000);
 
-  <footer>
-    <p>&copy; 2025 Benya B M | Full Stack Web Developer</p>
-  </footer>
+        // Manual slide control
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                currentSlide = index;
+                showSlide(currentSlide);
+            });
+        });
 
-  <script src="aos.js"></script>
-  <script>
-    AOS.init();
-  </script>
-</body>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
 
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // Enhanced scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Counter animation
+        function animateCounter(element) {
+            const target = parseInt(element.getAttribute('data-target'));
+            const duration = 2000;
+            const step = target / (duration / 16);
+            let current = 0;
+            
+            const timer = setInterval(() => {
+                current += step;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                element.textContent = Math.floor(current) + (target === 98 ? '%' : '+');
+            }, 16);
+        }
+
+        // Trigger counter animation when in view
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter(entry.target);
+                    counterObserver.unobserve(entry.target);
+                }
+            });
+        });
+
+        document.querySelectorAll('.counter').forEach(counter => {
+            counterObserver.observe(counter);
+        });
+
+        // Enhanced navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                navbar.style.background = 'rgba(0, 0, 0, 0.95)';
+                navbar.style.backdropFilter = 'blur(20px)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.05)';
+                navbar.style.backdropFilter = 'blur(15px)';
+            }
+        });
+
+        // Contact form submission with enhanced animation
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const button = this.querySelector('button[type="submit"]');
+            const originalText = button.innerHTML;
+            
+            // Loading animation
+            button.innerHTML = 'Sending... ⏳';
+            button.classList.add('animate-pulse');
+            
+            setTimeout(() => {
+                button.innerHTML = 'Message Sent! ✅';
+                button.classList.remove('animate-pulse', 'bg-yellow-400', 'hover:bg-yellow-500');
+                button.classList.add('bg-green-500');
+                
+                this.reset();
+                
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    button.classList.remove('bg-green-500');
+                    button.classList.add('bg-yellow-400', 'hover:bg-yellow-500');
+                }, 3000);
+            }, 1500);
+        });
+
+        // Newsletter form submission
+        document.getElementById('newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const button = this.querySelector('button[type="submit"]');
+            const originalText = button.textContent;
+            
+            button.textContent = 'Subscribed! ✓';
+            button.classList.add('bg-green-600', 'animate-pulse');
+            button.classList.remove('bg-yellow-600', 'hover:bg-yellow-700');
+            
+            this.reset();
+            
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.classList.remove('bg-green-600', 'animate-pulse');
+                button.classList.add('bg-yellow-600', 'hover:bg-yellow-700');
+            }, 3000);
+        });
+
+        // Initialize animations for elements already in view
+        setTimeout(() => {
+            document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right').forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    el.classList.add('visible');
+                }
+            });
+        }, 100);
+
+        // Add parallax effect to floating elements
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelectorAll('.floating');
+            
+            parallax.forEach(element => {
+                const speed = 0.5;
+                element.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98c8f0406338444f',t:'MTc2MDEyODg4Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
